@@ -113,3 +113,22 @@ Three concrete improvements would have the most impact:
 ## 9. Personal Reflection
 
 Building VibeFinder 1.0 made the mechanics of recommender systems feel concrete in a way that reading about them does not. Assigning explicit numbers to things like "how much should genre matter compared to energy?" forced a real design decision rather than an abstract one — and running adversarial profiles like Genre Ghost immediately revealed where those decisions break down in ways that are hard to predict in advance. The most striking moment was the Conflicted Listener results: the system confidently surfaced two jazz songs despite them being almost entirely wrong for the user's energy and mood, purely because the genre label matched. That felt like a miniature version of how real recommendation engines can be confidently wrong while still appearing to give a reasoned answer.
+
+
+---
+
+## 10. Final Project Reflection
+
+### Limitations and Biases
+The confidence scoring rubric inherits the same genre bias as the recommender itself — a result set with no genre matches scores low even if energy and mood are perfect fits. The 18-song catalog means underrepresented genres (metal, country) produce unreliable results regardless of scoring strategy. The evaluator detects these failures but cannot fix them.
+
+### Misuse Risks and Prevention
+A recommender system could be misused to create filter bubbles — repeatedly surfacing the same genre and artist until a user's taste artificially narrows. It could also be gamed by music labels who optimize song metadata tags to match common user profiles rather than genuine musical qualities. Prevention strategies include: enforcing diversity constraints in results, auditing score distributions across genres regularly, and being transparent with users about how recommendations are generated.
+
+### Surprises During Reliability Testing
+The most surprising finding was that three profiles scored a perfect confidence of 1.00 — not because the system is sophisticated, but because the catalog happens to be well-stocked for pop, lofi, and metal. The system looks reliable for those profiles purely by luck of catalog composition, not because the algorithm is sound. This showed how easy it is to mistake coverage for quality.
+
+### AI Collaboration
+**Helpful:** Claude helped design the confidence scoring rubric — specifically the idea of breaking confidence into four weighted components (genre match, mood match, energy proximity, top-5 overlap) rather than a single binary pass/fail. This made the scores more informative and easier to interpret.
+
+**Flawed:** Claude initially suggested using `__file__` inside the test harness to build the path to the project root, which caused a NameError when the script was run with `python3 -m`. The fix required manually changing the path resolution approach. This was a reminder that AI-generated code needs to be tested in the actual run environment, not just read for logical correctness.
