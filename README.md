@@ -111,7 +111,7 @@ See model_card.md for full analysis.
 
 ## Video Walkthrough
 
-[Loom walkthrough link — add before submission]
+[Watch the VibeFinder 2.0 walkthrough](https://www.loom.com/share/4ba9c91c8acd491382248b03d889501b)
 
 ---
 
