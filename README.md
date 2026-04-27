@@ -123,3 +123,12 @@ See model_card.md for full analysis.
 ## Portfolio Reflection
 
 VibeFinder 2.0 demonstrates that I think about AI systems beyond just getting them to work — I want to understand when and why they fail. Building the reliability layer taught me that evaluation is not optional in responsible AI design: a system that only works on favorable inputs is not trustworthy, it is just lucky. I care about transparency, and every confidence score in this system traces back to a specific inspectable rule rather than a black box. This project reflects how I approach AI engineering — with curiosity about failure modes, honesty about limitations, and a belief that good documentation is as important as good code.
+
+## Repository Structureapplied-ai-system-project/
+├── assets/architecture.svg
+├── data/songs.csv
+├── src/recommender.py, main.py, evaluator.py
+├── tests/test_recommender.py, test_harness.py
+├── model_card.md
+├── README.md
+└── requirements.txt
